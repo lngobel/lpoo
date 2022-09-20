@@ -8,7 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
 public class ClienteDAO extends BaseDAO{
     public static List<Cliente> selectClientes(){
@@ -41,12 +40,17 @@ public class ClienteDAO extends BaseDAO{
         {
             pstmt.setString(1,"%" + nome.toLowerCase() + "%");
             ResultSet rs = pstmt.executeQuery();
-            List<Cliente> clienteList = new ArrayList<>();
-            while(rs.next()){
+            if(rs.next()) {
+                List<Cliente> clienteList = new ArrayList<>();
                 clienteList.add(resultSetToCliente(rs));
+                while (rs.next()) {
+                    clienteList.add(resultSetToCliente(rs));
+                }
+                rs.close();
+                return clienteList;
             }
-            rs.close();
-            return clienteList;
+            else
+                return null;
         }catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -117,7 +121,7 @@ public class ClienteDAO extends BaseDAO{
     }
 
     public static boolean updateCliente(Cliente cliente){
-        final String sql = "UPDATE Cliente SET nomeCliente=?, enderecoCliente=?, cepCliente=?, telefoneCliente=?, emailCliente=? WHERE idCliente=?";
+        final String sql = "UPDATE cliente SET nomeCliente=?, enderecoCliente=?, cepCliente=?, telefoneCliente=?, emailCliente=? WHERE idCliente=?";
         try
                 (
                  Connection conn = getConnection();
@@ -157,6 +161,7 @@ public class ClienteDAO extends BaseDAO{
 
     private static Cliente resultSetToCliente(ResultSet rs) throws SQLException {
         Cliente c = new Cliente();
+        c.setId(rs.getInt("idCliente"));
         c.setNome(rs.getString("nomeCliente"));
         c.setEndereco(rs.getString("enderecoCliente"));
         c.setCep(rs.getString("cepCliente"));
@@ -168,11 +173,12 @@ public class ClienteDAO extends BaseDAO{
 
 
     public static void main(String[] args) {
-        System.out.println("Lista de clientes:");
-        System.out.println(selectClientes());
-        System.out.println("Busca cliente por nome:");
-        System.out.println(selectClienteByName("a"));
-        System.out.println("Busca cliente por email:");
-        System.out.println(selectClienteByEmail("a"));
+
+
+        System.out.println("\nAlterando um cliente");
+        Cliente cliente = selectClienteById(1);
+        cliente.setEndereco("Fernando Osório, 749");
+        System.out.println(ClienteDAO.updateCliente(cliente));
+        System.out.println("\nCliente alterado: " + ClienteDAO.selectClienteById(1));
     }
 }

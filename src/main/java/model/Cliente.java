@@ -81,6 +81,10 @@ public class Cliente {
         this.animalList = animalList;
     }
 
+    public void addAnimalList(Animal animal) {
+        this.animalList.add(animal);
+    }
+
     @Override
     public String toString() {
         return "\nCliente{" +
