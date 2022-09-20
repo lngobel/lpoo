@@ -5,10 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2f695bcb-979c-43a8-974f-b3f2e6aaaec2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/control/ClienteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dao/ClienteDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Cliente.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +38,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "database.data.extractors.current.export.id": "JSON-Groovy.json.groovy",
+    "last_opened_file_path": "C:/Users/lucas/OneDrive/Desktop/Aulas/Semestre 3/LPOO/Projeto",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "preferences.lookFeel"
   },
@@ -109,7 +109,7 @@
       <workItem from="1663289187314" duration="6853000" />
       <workItem from="1663435187176" duration="16975000" />
       <workItem from="1663633916228" duration="3518000" />
-      <workItem from="1663683089525" duration="15038000" />
+      <workItem from="1663683089525" duration="16960000" />
     </task>
     <servers />
   </component>

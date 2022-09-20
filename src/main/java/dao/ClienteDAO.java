@@ -143,7 +143,7 @@ public class ClienteDAO extends BaseDAO{
     }
 
     public static boolean deleteCliente(int id) {
-        final String sql = "DELETE FROM cliente WHERE id = ?";
+        final String sql = "DELETE FROM cliente WHERE idCliente = ?";
         try
                 (
                         Connection conn = getConnection();
